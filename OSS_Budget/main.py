@@ -12,6 +12,8 @@ def main():
         print("4. 종료")
         print("5. 지출 내역 저장 (CSV)")
         print("6. 카테고리별 지출 합계 보기")
+
+
         choice = input("선택 > ")
 
         if choice == "1":
@@ -39,6 +41,9 @@ def main():
         
         elif choice == "6":
             budget.total_by_category()
+
+        
+
 
 
         
