@@ -53,6 +53,17 @@ class Budget:
         print(f"{category}: {total}원")
     print()
 
+    def delete_expense(self, index):
+    if not self.expenses:
+        print("지출 내역이 없습니다.\n")
+        return
+
+    if 0 < index <= len(self.expenses):
+        removed = self.expenses.pop(index - 1)
+        print(f"{index}번 지출 항목이 삭제되었습니다: {removed}\n")
+    else:
+        print("잘못된 번호입니다.\n")
+
    
 
 
