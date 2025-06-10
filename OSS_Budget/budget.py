@@ -24,4 +24,15 @@ class Budget:
         total = sum(e.amount for e in self.expenses)
         print(f"총 지출: {total}원\n")
 
+    def search_expenses(self, keyword):
+        found = [e for e in self.expenses if keyword in e.description or keyword in e.category]
+        if not found:
+            print(f"'{keyword}' 에 해당하는 지출이 없습니다.\n")
+            return
+
+        print(f"\n[검색 결과: '{keyword}']")
+        for idx, e in enumerate(found, 1):
+            print(f"{idx}. {e}")
+        print()
+
 
