@@ -36,6 +36,23 @@ class Budget:
                 writer.writerow([e.date, e.category, e.description, e.amount])
         print(f"{filename} 파일로 저장 완료.\n")
     
+    def total_by_category(self):
+        if not self.expenses:
+            print("지출 내역이 없습니다.\n")
+            return
+
+        category_totals = {}
+        for e in self.expenses:
+            if e.category in category_totals:
+                category_totals[e.category] += e.amount
+            else:
+                category_totals[e.category] = e.amount
+
+        print("\n[카테고리별 지출 합계]")
+        for category, total in category_totals.items():
+            print(f"{category}: {total}원")
+        print()
+
    
 
 
