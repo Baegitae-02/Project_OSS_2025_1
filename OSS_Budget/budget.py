@@ -1,5 +1,6 @@
 import datetime
 from expense import Expense
+import csv
 
 class Budget:
     def __init__(self):
@@ -23,5 +24,19 @@ class Budget:
     def total_spent(self):
         total = sum(e.amount for e in self.expenses)
         print(f"총 지출: {total}원\n")
+
+    def save_to_csv(self, filename="expenses.csv"):
+        if not self.expenses:
+            print("저장할 지출 내역이 없습니다.\n")
+            return
+        with open(filename, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(["날짜", "카    테고리", "설명", "금액"])
+            for e in self.expenses:
+                writer.writerow([e.date, e.category, e.description, e.amount])
+        print(f"{filename} 파일로 저장 완료.\n")
+    
+   
+
 
 
